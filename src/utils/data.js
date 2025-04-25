@@ -1,6 +1,6 @@
 export const collectionsList = [
         {name:"Gold with Lab Daimonds",slug:"gold-with-lab"},
-        {name:"Wedding Collection",slug:"wedding-collection"},
+        {name:"Wedding Collection",slug:"wedding"},
         {name:"Luxury Vault",slug:"luxury-vault"},
         {name:"Budget Picks",slug:"budget-picks"},
         {name:"Top Products",slug:"top-products"},
@@ -8,7 +8,6 @@ export const collectionsList = [
         {name:"Anniversary",slug:"anniversary"},
         {name:"Engagement",slug:"engagement"},
         {name:"Proposal",slug:"proposal"},
-        {name:"Wedding",slug:"wedding"},
         {name:"Festivals",slug:"festivals"},
         {name:"For Mother",slug:"for-mother"},
         {name:"For Sister",slug:"for-sister"},
