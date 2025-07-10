@@ -38,7 +38,7 @@ export default function AddProduct() {
       metal: "silver",
       mode: "online",
       specifications: [
-        { key: "Measurements", value: "20 mm x 20 mm " },
+        { key: "Length of Payal", value: "230 mm  + 30 mm Adjustable " },
         { key: "Weight", value: "10 g" },
         { key: "Color", value: "White" },        
       ],

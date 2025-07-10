@@ -1,14 +1,13 @@
+import { connectToDB } from "@/db"
 import Order from "@/models/orderModel"
 import OrderItem from "@/models/orderItemModel"
 import User from "@/models/userModel"
 import Payment from "@/models/paymentModel"
-// import AdminLayout from "@/components/admin/AdminLayout"
 import OrdersTable from "@/components/admin/orders/OrdersTable"
 import OrderSummary from "@/components/admin/orders/OrderSummary"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/app/api/auth/[...nextauth]/options"
 import { redirect } from "next/navigation"
-import { connectToDB } from "@/db"
 
 export const dynamic = "force-dynamic"
 
@@ -102,8 +101,7 @@ export default async function AdminOrders({ searchParams }) {
   })
 
   return (
-    // <AdminLayout>
-      <div className="container mx-auto px-4 py-8 dark:bg-[#424242] ">
+      <div className="container mx-auto px-4 py-8">
         <h1 className="text-2xl font-bold mb-6">Order Management</h1>
 
         <OrderSummary
@@ -125,6 +123,5 @@ export default async function AdminOrders({ searchParams }) {
           dateRange={dateRange}
         />
       </div>
-    // </AdminLayout>
   )
 }

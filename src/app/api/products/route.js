@@ -42,7 +42,6 @@ export async function POST(request) {
     const video = formData.get("video")
     const specificationsJSON = formData.get("specifications")
     const specifications = specificationsJSON ? JSON.parse(specificationsJSON) : []
-    console.log(specifications)
 
     const slug = name
       .toLowerCase()
