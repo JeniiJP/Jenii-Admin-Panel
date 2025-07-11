@@ -1,7 +1,7 @@
 import Order from "@/models/orderModel"
 import { NextResponse } from "next/server"
 import { verifyShiprocketWebhook } from "@/utils/adminUtils"
-import { sendEmail, generateOrderStatusEmail } from "@/utils/sendMail"
+// import { sendEmail, generateOrderStatusEmail } from "@/utils/sendMail"
 import { connectToDB } from "@/db"
 
 export async function POST(req) {
@@ -72,19 +72,19 @@ async function handleAwbAssigned(data) {
 
   // Send email notification to customer
   const email = order.userId ? (await order.populate("userId")).userId.email : order.shippingAddress.email
-  if (email) {
-    const emailHtml = generateOrderStatusEmail(order, "AWB_ASSIGNED", {
-      awb: awb_code,
-      courier: courier_name,
-      trackingUrl: tracking_url,
-    })
+  // if (email) {
+  //   const emailHtml = generateOrderStatusEmail(order, "AWB_ASSIGNED", {
+  //     awb: awb_code,
+  //     courier: courier_name,
+  //     trackingUrl: tracking_url,
+  //   })
 
-    try {
-      await sendEmail(email, `JENII - Tracking Information for Order #${order.orderNumber}`, emailHtml)
-    } catch (error) {
-      console.error("Error sending AWB assignment email:", error)
-    }
-  }
+  //   try {
+  //     await sendEmail(email, `JENII - Tracking Information for Order #${order.orderNumber}`, emailHtml)
+  //   } catch (error) {
+  //     console.error("Error sending AWB assignment email:", error)
+  //   }
+  // }
 }
 
 // Handle pickup updates
@@ -106,15 +106,15 @@ async function handlePickupUpdate(data, event) {
 
     // Send email notification to customer
     const email = order.userId ? (await order.populate("userId")).userId.email : order.shippingAddress.email
-    if (email) {
-      const emailHtml = generateOrderStatusEmail(order, "SHIPPED")
+    // if (email) {
+    //   const emailHtml = generateOrderStatusEmail(order, "SHIPPED")
 
-      try {
-        await sendEmail(email, `JENII - Your Order #${order.orderNumber} Has Been Shipped`, emailHtml)
-      } catch (error) {
-        console.error("Error sending shipment email:", error)
-      }
-    }
+    //   try {
+    //     await sendEmail(email, `JENII - Your Order #${order.orderNumber} Has Been Shipped`, emailHtml)
+    //   } catch (error) {
+    //     console.error("Error sending shipment email:", error)
+    //   }
+    // }
   }
 }
 
@@ -155,15 +155,15 @@ async function handleDelivered(data) {
 
   // Send email notification to customer
   const email = order.userId ? (await order.populate("userId")).userId.email : order.shippingAddress.email
-  if (email) {
-    const emailHtml = generateOrderStatusEmail(order, "DELIVERED")
+  // if (email) {
+  //   const emailHtml = generateOrderStatusEmail(order, "DELIVERED")
 
-    try {
-      await sendEmail(email, `JENII - Your Order #${order.orderNumber} Has Been Delivered`, emailHtml)
-    } catch (error) {
-      console.error("Error sending delivery email:", error)
-    }
-  }
+  //   try {
+  //     await sendEmail(email, `JENII - Your Order #${order.orderNumber} Has Been Delivered`, emailHtml)
+  //   } catch (error) {
+  //     console.error("Error sending delivery email:", error)
+  //   }
+  // }
 }
 
 // Handle cancellation or return
@@ -189,14 +189,14 @@ async function handleCancellationOrReturn(data, event) {
   await order.save()
 
   // Send email notification to customer
-  const email = order.userId ? (await order.populate("userId")).userId.email : order.shippingAddress.email
-  if (email) {
-    const emailHtml = generateOrderStatusEmail(order, order.orderStatus)
+  // const email = order.userId ? (await order.populate("userId")).userId.email : order.shippingAddress.email
+  // if (email) {
+  //   const emailHtml = generateOrderStatusEmail(order, order.orderStatus)
 
-    try {
-      await sendEmail(email, `JENII - Update for Order #${order.orderNumber}`, emailHtml)
-    } catch (error) {
-      console.error("Error sending status update email:", error)
-    }
-  }
+  //   try {
+  //     await sendEmail(email, `JENII - Update for Order #${order.orderNumber}`, emailHtml)
+  //   } catch (error) {
+  //     console.error("Error sending status update email:", error)
+  //   }
+  // }
 }
