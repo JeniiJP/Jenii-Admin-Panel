@@ -305,11 +305,11 @@ const Dashboard = () => {
                   >
                     <div className="flex items-center space-x-4">
                       <div className="flex-shrink-0">
-                        <img
-                          // src={product.image || "/placeholder.svg?height=48&width=48"}
+                        {/* <img
+                          src={product.image || "/placeholder.svg?height=48&width=48"}
                           alt={product.name}
                           className="h-12 w-12 rounded-lg object-cover"
-                        />
+                        /> */}
                       </div>
                       <div>
                         <p className="font-medium text-gray-900 truncate max-w-xs">{product.name}</p>

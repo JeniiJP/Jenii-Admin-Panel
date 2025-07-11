@@ -462,7 +462,7 @@ export default function Stats() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="font-semibold text-gray-900">₹{product.revenue?.toLocaleString()}</p>
+                      {/* <p className="font-semibold text-gray-900">₹{product.revenue?.toLocaleString()}</p> */}
                       <p className="text-sm text-gray-500">#{index + 1}</p>
                     </div>
                   </div>
